@@ -1,4 +1,4 @@
-package com.jamesladdcode.example;
+package com.jamesladdcode.business.domain;
 
 import com.jamesladdcode.business.BusinessOutput;
 import org.apache.log4j.Logger;

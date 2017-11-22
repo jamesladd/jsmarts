@@ -1,5 +1,6 @@
 package com.jamesladdcode.main;
 
+import com.jamesladdcode.CommandLineArguments;
 import com.jamesladdcode.service.Service;
 import dagger.*;
 
@@ -10,7 +11,7 @@ public interface MainConfig {
 
     @Component.Builder
     interface Builder {
-        @BindsInstance Builder arguments(String[] args);
+        @BindsInstance Builder arguments(CommandLineArguments arguments);
         MainConfig build();
     }
 }

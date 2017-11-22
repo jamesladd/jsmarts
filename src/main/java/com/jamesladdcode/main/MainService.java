@@ -36,7 +36,7 @@ public class MainService implements Service {
             try {
                 operation.accept(transformedInput, output);
             } catch (RuntimeException e) {
-                LOG.debug(e);
+                LOG.error(e);
                 errorOutput.accept(e);
             }
         };

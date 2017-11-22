@@ -1,8 +1,8 @@
-package com.jamesladdcode.example;
+package com.jamesladdcode.business.domain;
 
 import com.jamesladdcode.business.BusinessInput;
 import com.jamesladdcode.business.BusinessOperationInvoker;
-import com.jamesladdcode.service.CommandLineArguments;
+import com.jamesladdcode.CommandLineArguments;
 import org.apache.log4j.Logger;
 
 public class ThingInput implements BusinessInput {
@@ -11,7 +11,7 @@ public class ThingInput implements BusinessInput {
 
     private final CommandLineArguments arguments;
 
-    public ThingInput(CommandLineArguments arguments) {
+    ThingInput(CommandLineArguments arguments) {
         this.arguments = arguments;
         if (LOG.isDebugEnabled())
             LOG.debug(arguments);

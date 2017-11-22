@@ -16,7 +16,7 @@ public class Main {
 
     private static Service serviceWith(String[] args) {
         return DaggerMainConfig.builder()
-                .arguments(args)
+                .arguments(new CommandLineArguments(args))
                 .build()
                 .service();
     }

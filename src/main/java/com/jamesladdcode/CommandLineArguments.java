@@ -1,4 +1,4 @@
-package com.jamesladdcode.service;
+package com.jamesladdcode;
 
 import java.util.Arrays;
 import java.util.List;
