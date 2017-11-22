@@ -2,7 +2,7 @@ package com.jamesladdcode.business.domain;
 
 import com.jamesladdcode.CommandLineArguments;
 import com.jamesladdcode.business.BusinessInput;
-import com.jamesladdcode.business.BusinessOperationInvoker;
+import com.jamesladdcode.service.BusinessProcessInvoker;
 import org.apache.log4j.Logger;
 
 public class ThingsInput implements BusinessInput {
@@ -18,10 +18,14 @@ public class ThingsInput implements BusinessInput {
     }
 
     @Override
-    public void accept(BusinessOperationInvoker operationInvoker) {
-        LOG.debug("Enter.");
-        arguments.forEach((argument) -> createInput(argument).accept(operationInvoker));
-        LOG.debug("Exit.");
+    public void apply(BusinessProcessInvoker businessProcess) {
+        LOG.trace("Enter.");
+        arguments.forEach((argument) -> processWith(argument, businessProcess));
+        LOG.trace("Exit.");
+    }
+
+    private void processWith(String argument, BusinessProcessInvoker businessProcess) {
+        createInput(argument).apply(businessProcess);
     }
 
     private ThingInput createInput(String argument) {

@@ -1,38 +1,36 @@
 package com.jamesladdcode.business.domain;
 
 import com.jamesladdcode.business.BusinessInput;
-import com.jamesladdcode.business.BusinessOperation;
+import com.jamesladdcode.business.BusinessProcess;
 import com.jamesladdcode.business.BusinessOutput;
 import com.jamesladdcode.CommandLineArguments;
 import dagger.Module;
 import dagger.Provides;
 import org.apache.log4j.Logger;
 
-import javax.inject.Named;
-
 @Module(includes = {})
 public class ThingModule {
 
     private static final Logger LOG = Logger.getLogger(ThingModule.class);
     static {
-        LOG.debug("Setup ...");
+        LOG.trace("Setup ...");
     }
 
     @Provides
-    BusinessOperation provideBusinessOperation() {
-        LOG.debug("...");
-        return new ThingOperation();
+    BusinessProcess provideBusinessProcess() {
+        LOG.trace("...");
+        return new ThingProcess();
     }
 
     @Provides
     BusinessOutput provideBusinessOutput() {
-        LOG.debug("...");
+        LOG.trace("...");
         return new ThingOutput();
     }
 
     @Provides
     BusinessInput provideBusinessInput(CommandLineArguments arguments) {
-        LOG.debug("...");
+        LOG.trace("...");
         return new ThingsInput(arguments);
     }
 }

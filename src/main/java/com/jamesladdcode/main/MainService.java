@@ -1,8 +1,8 @@
 package com.jamesladdcode.main;
 
 import com.jamesladdcode.business.BusinessInput;
-import com.jamesladdcode.business.BusinessOperation;
-import com.jamesladdcode.business.BusinessOperationInvoker;
+import com.jamesladdcode.business.BusinessProcess;
+import com.jamesladdcode.service.BusinessProcessInvoker;
 import com.jamesladdcode.business.BusinessOutput;
 import com.jamesladdcode.service.ErrorOutput;
 import com.jamesladdcode.service.Service;
@@ -13,31 +13,31 @@ public class MainService implements Service {
     private static final Logger LOG = Logger.getLogger(MainService.class);
 
     private final BusinessInput input;
-    private final BusinessOperation operation;
+    private final BusinessProcess process;
     private final BusinessOutput output;
     private final ErrorOutput errorOutput;
 
     MainService(BusinessInput input,
-                BusinessOperation operation,
+                BusinessProcess process,
                 BusinessOutput output,
                 ErrorOutput errorOutput) {
         this.input = input;
-        this.operation = operation;
+        this.process = process;
         this.output = output;
         this.errorOutput = errorOutput;
     }
 
     @Override
     public void execute() {
-        LOG.debug("Enter.");
-        input.accept(operation());
-        LOG.debug("Exit.");
+        LOG.trace("Enter.");
+        input.apply(process());
+        LOG.trace("Exit.");
     }
 
-    private BusinessOperationInvoker operation() {
+    private BusinessProcessInvoker process() {
         return (transformedInput) -> {
             try {
-                operation.accept(transformedInput, output);
+                process.execute(transformedInput, output);
             } catch (Exception e) {
                 LOG.error(e);
                 errorOutput.accept(e);

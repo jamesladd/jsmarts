@@ -9,9 +9,9 @@ public class Main {
     private static final Logger LOG = Logger.getLogger(Main.class);
 
     public static void main(String[] args) {
-        LOG.debug("Enter.");
+        LOG.trace("Enter.");
         serviceWith(args).execute();
-        LOG.debug("Exit.");
+        LOG.trace("Exit.");
     }
 
     private static Service serviceWith(String[] args) {

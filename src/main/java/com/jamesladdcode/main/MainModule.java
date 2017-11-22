@@ -1,7 +1,7 @@
 package com.jamesladdcode.main;
 
 import com.jamesladdcode.business.BusinessInput;
-import com.jamesladdcode.business.BusinessOperation;
+import com.jamesladdcode.business.BusinessProcess;
 import com.jamesladdcode.business.BusinessOutput;
 import com.jamesladdcode.business.domain.ThingModule;
 import com.jamesladdcode.service.ErrorOutput;
@@ -15,21 +15,21 @@ class MainModule {
 
     private static final Logger LOG = Logger.getLogger(MainModule.class);
     static {
-        LOG.debug("Setup ...");
+        LOG.trace("Setup ...");
     }
 
     @Provides
     ErrorOutput provideErrorOutput() {
-        LOG.debug("...");
+        LOG.trace("...");
         return new ErrorOutput();
     }
 
     @Provides
     Service provideService(BusinessInput input,
-                           BusinessOperation operation,
+                           BusinessProcess process,
                            BusinessOutput output,
                            ErrorOutput errorOutput) {
-        LOG.debug("...");
-        return new MainService(input, operation, output, errorOutput);
+        LOG.trace("...");
+        return new MainService(input, process, output, errorOutput);
     }
 }

@@ -9,7 +9,7 @@ public class ThingOutput implements BusinessOutput {
 
     @Override
     public void accept(BusinessOutput output) {
-        LOG.debug("Enter.");
-        LOG.debug("Exit.");
+        LOG.trace("Enter.");
+        LOG.trace("Exit.");
     }
 }

@@ -1,7 +1,7 @@
 package com.jamesladdcode.business.domain;
 
 import com.jamesladdcode.business.BusinessInput;
-import com.jamesladdcode.business.BusinessOperationInvoker;
+import com.jamesladdcode.service.BusinessProcessInvoker;
 import org.apache.log4j.Logger;
 
 class ThingInput implements BusinessInput {
@@ -21,9 +21,9 @@ class ThingInput implements BusinessInput {
     }
 
     @Override
-    public void accept(BusinessOperationInvoker operationInvoker) {
-        LOG.debug("Enter.");
-        operationInvoker.accept(this);
-        LOG.debug("Exit.");
+    public void apply(BusinessProcessInvoker businessProcess) {
+        LOG.trace("Enter.");
+        businessProcess.process(this);
+        LOG.trace("Exit.");
     }
 }
