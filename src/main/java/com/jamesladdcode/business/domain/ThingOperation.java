@@ -11,7 +11,7 @@ public class ThingOperation implements BusinessOperation {
 
     @Override
     public void accept(BusinessInput input, BusinessOutput output) {
-        LOG.debug("Enter.");
+        LOG.debug("Enter: " + input);
         LOG.debug("Exit.");
     }
 }

@@ -25,7 +25,10 @@ class MainModule {
     }
 
     @Provides
-    Service provideService(BusinessInput input, BusinessOperation operation, BusinessOutput output, ErrorOutput errorOutput) {
+    Service provideService(BusinessInput input,
+                           BusinessOperation operation,
+                           BusinessOutput output,
+                           ErrorOutput errorOutput) {
         LOG.debug("...");
         return new MainService(input, operation, output, errorOutput);
     }

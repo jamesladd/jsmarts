@@ -17,7 +17,10 @@ public class MainService implements Service {
     private final BusinessOutput output;
     private final ErrorOutput errorOutput;
 
-    MainService(BusinessInput input, BusinessOperation operation, BusinessOutput output, ErrorOutput errorOutput) {
+    MainService(BusinessInput input,
+                BusinessOperation operation,
+                BusinessOutput output,
+                ErrorOutput errorOutput) {
         this.input = input;
         this.operation = operation;
         this.output = output;
@@ -35,7 +38,7 @@ public class MainService implements Service {
         return (transformedInput) -> {
             try {
                 operation.accept(transformedInput, output);
-            } catch (RuntimeException e) {
+            } catch (Exception e) {
                 LOG.error(e);
                 errorOutput.accept(e);
             }

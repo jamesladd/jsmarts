@@ -8,6 +8,8 @@ import dagger.Module;
 import dagger.Provides;
 import org.apache.log4j.Logger;
 
+import javax.inject.Named;
+
 @Module(includes = {})
 public class ThingModule {
 
@@ -31,6 +33,6 @@ public class ThingModule {
     @Provides
     BusinessInput provideBusinessInput(CommandLineArguments arguments) {
         LOG.debug("...");
-        return new ThingInput(arguments);
+        return new ThingsInput(arguments);
     }
 }

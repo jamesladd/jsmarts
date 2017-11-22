@@ -2,19 +2,22 @@ package com.jamesladdcode.business.domain;
 
 import com.jamesladdcode.business.BusinessInput;
 import com.jamesladdcode.business.BusinessOperationInvoker;
-import com.jamesladdcode.CommandLineArguments;
 import org.apache.log4j.Logger;
 
-public class ThingInput implements BusinessInput {
+class ThingInput implements BusinessInput {
 
     private static final Logger LOG = Logger.getLogger(ThingInput.class);
 
-    private final CommandLineArguments arguments;
+    private final String argument;
 
-    ThingInput(CommandLineArguments arguments) {
-        this.arguments = arguments;
+    ThingInput(String argument) {
+        this.argument = argument;
         if (LOG.isDebugEnabled())
-            LOG.debug(arguments);
+            LOG.debug(argument);
+    }
+
+    public String toString() {
+        return argument;
     }
 
     @Override
